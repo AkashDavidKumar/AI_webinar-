@@ -114,6 +114,6 @@ Since the website uses only pure HTML, CSS, and JS, you can host it **100% free*
 
 ## 📝 Customization Tips
 
-* **Change UPI ID / Pricing**: If you wish to change the registration cost or the target merchant UPI ID, open `register.html` and search for `baskartech@okaxis`. You can edit the text there. To change the visual QR code, you can replace the inline `<svg>` inside the `.qr-code-wrapper` with a custom QR image or your own payment QR code.
+* **Change UPI ID / Pricing**: If you wish to change the registration cost or the target merchant UPI ID, open `register.html` and search for `tonybaskar83@okaxis`. You can edit the text there. To change the visual QR code, you can replace the QR image inside `images/Payment_QR_cropped.jpeg` with your own payment QR code.
 * **Customize Trainer Info**: Open `index.html` and scroll to Section 6 to customize the trainer's name, biography, tags, and social media links.
 * **Logo Customization**: Locate the `<a href="index.html" class="logo">` block in `index.html` and `register.html` to swap out the graduation icon and Baskar Tech branding text.
