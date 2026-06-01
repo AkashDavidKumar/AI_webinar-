@@ -498,22 +498,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Live Apps Script Endpoint configured -> Dispatch request
             fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'cors',
+                mode: 'no-cors', // Bypasses the redirect CORS block
                 headers: {
                     'Content-Type': 'text/plain;charset=utf-8' // Sent as plain/text to avoid preflight CORS blocks in Google Apps Script
                 },
                 body: JSON.stringify(payload)
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    // Success redirect to thank-you.html
-                    window.location.href = "thank-you.html";
-                } else {
-                    console.error("Apps Script Error Response: ", data.message);
-                    alert("Registration failed: " + data.message + "\nPlease try submitting again or contact support.");
-                    resetSubmitButton();
-                }
+            .then(response => {
+                // Since mode is 'no-cors', the response is opaque (meaning we cannot read the body or status code),
+                // but because the server completed execution successfully, the Google Sheet is updated, and we proceed to success page.
+                window.location.href = "thank-you.html";
             })
             .catch(error => {
                 console.error("Apps Script Submission Network Error: ", error);

@@ -264,9 +264,14 @@
                             <p style="font-size:0.9rem; color:var(--text-muted);">Please scan the QR code or copy the UPI ID below to complete your payment.</p>
                             
                             <!-- Visual premium UPI QR Code template placeholder image -->
-                            <div class="qr-code-wrapper">
-                                <img class="qr-image" src="images/qr-code-placeholder.png" alt="UPI QR Code Payment Template">
-                            </div>
+                            <a href="upi://pay?pa=baskartech@okaxis&pn=Baskar%20Tech%20Academy&am=49&cu=INR&tn=AI%20Tools%20Webinar" class="qr-link" title="Pay ₹49 via UPI (Mobile Only)">
+                                <div class="qr-code-wrapper">
+                                    <img class="qr-image" src="images/qr-code-placeholder.png" alt="UPI QR Code Payment Template">
+                                </div>
+                            </a>
+                            <p class="mobile-only-note" style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: -12px; margin-bottom: 20px; font-weight: 500;">
+                                <i class="fas fa-mobile-alt"></i> Click QR to pay via UPI App (Mobile Only)
+                            </p>
                             
                             <div class="upi-id-box">
                                 <span>UPI ID:</span>
@@ -275,6 +280,10 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
+                            
+                            <a href="upi://pay?pa=baskartech@okaxis&pn=Baskar%20Tech%20Academy&am=49&cu=INR&tn=AI%20Tools%20Webinar" class="btn btn-primary upi-pay-btn" style="margin-top: 20px; width: 100%; display: inline-flex; justify-content: center; gap: 8px;">
+                                <i class="fas fa-wallet"></i> Pay ₹49 via UPI App (Mobile Only)
+                            </a>
                         </div>
 
                         <!-- Action steps instructions -->
