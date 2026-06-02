@@ -463,4 +463,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 500); // 500ms delay matches particle fade out sweet spot perfectly
     });
+
+    // ========================================================================
+    // DYNAMIC PRICING ENGINE (Promo: ₹39 for 2 days, then ₹40)
+    // ========================================================================
+    (function() {
+        // Promo Start: June 2, 2026 11:49:00 AM (IST)
+        const promoStart = new Date("2026-06-02T11:49:00+05:30");
+        const promoDuration = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
+        const promoEnd = new Date(promoStart.getTime() + promoDuration);
+        
+        const now = new Date();
+        const price = (now < promoEnd) ? 39 : 40;
+        
+        // 1. Update text elements with price values
+        const priceElements = document.querySelectorAll('.dynamic-price-text');
+        priceElements.forEach(el => {
+            el.textContent = '₹' + price;
+        });
+        
+        // 2. Update UPI payment deep links (amount parameter 'am')
+        const payLinks = document.querySelectorAll('.dynamic-upi-pay-link');
+        payLinks.forEach(link => {
+            let href = link.getAttribute('href');
+            if (href) {
+                // Replace am=49 or other price value dynamically
+                href = href.replace(/am=\d+/, 'am=' + price);
+                link.setAttribute('href', href);
+            }
+            
+            let title = link.getAttribute('title');
+            if (title) {
+                // Replace title description price
+                title = title.replace(/₹\d+/, '₹' + price);
+                link.setAttribute('title', title);
+            }
+            
+            // If it's the green UPI deep-link button, update its text too
+            if (link.classList.contains('upi-pay-btn')) {
+                link.innerHTML = `<i class="fas fa-wallet"></i> Pay ₹${price} via UPI App (Mobile Only)`;
+            }
+        });
+
+        // 3. Update QR code image based on price (₹39 QR vs default ₹40 fallback QR)
+        const qrImg = document.querySelector('.qr-image');
+        if (qrImg) {
+            if (price === 39) {
+                qrImg.setAttribute('src', 'images/payment_QR_39rs.jpeg');
+            } else {
+                qrImg.setAttribute('src', 'images/Payment_QR_Cropped-49rs.jpeg');
+            }
+        }
+    })();
 });
