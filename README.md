@@ -6,6 +6,8 @@ A complete, production-ready, mobile-first, and highly-optimized webinar registr
 
 ## 🚀 Key Features
 
+Live link: -> https://akashdavidkumar.github.io/AI_webinar-/
+
 * **Premium SaaS Visual Aesthetics**: Built with cohesive colors (Primary Sky Blue, Secondary Deep Ocean Blue, Slate Dark, Light backgrounds), glassmorphic elements, soft drop shadows, and responsive, dynamic layout structures.
 * **Light / Dark Mode Persistent Toggle**: A system that dynamically transitions between themes with a single tap, utilizing `localStorage` to preserve user preferences across different pages.
 * **Evergreen Countdown Timer**: A smart timer in `js/countdown.js` that automatically calculates and targets the *upcoming Saturday at 6:00 PM (IST)*, ensuring the timer never expires or looks stale.
