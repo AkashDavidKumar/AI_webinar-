@@ -306,4 +306,10 @@
         padding: 12px 16px;
         font-size: 0.95rem;
     }
+    
+    /* Position floating actions above the sticky bottom CTA footer */
+    .floating-actions {
+        bottom: 90px;
+        right: 20px;
+    }
 }

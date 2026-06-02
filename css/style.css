@@ -596,6 +596,16 @@ header.scrolled {
     font-weight: 700;
 }
 
+.meta-item.fee i {
+    color: inherit; /* Align icon color with text color */
+}
+
+[data-theme="dark"] .meta-item.fee {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 .hero-buttons {
     display: flex;
     gap: 15px;
