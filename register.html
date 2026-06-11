@@ -204,26 +204,17 @@
                             <p style="font-size:0.9rem; color:var(--text-muted);">Please scan the QR code or copy the UPI ID below to complete your payment.</p>
                             
                             <!-- Visual premium UPI QR Code template placeholder image -->
-                            <a href="#" class="qr-link" id="mobile-qr-trigger" title="Pay via UPI App (Mobile Only)">
-                                <div class="qr-code-wrapper">
-                                    <img class="qr-image" src="images/Payment_QR_Cropped-49rs.jpeg" alt="UPI QR Code Payment Template">
-                                </div>
-                            </a>
-                            <p class="mobile-only-note" style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: -12px; margin-bottom: 20px; font-weight: 500;">
-                                <i class="fas fa-mobile-alt"></i> Click QR to pay via UPI App (Mobile Only)
-                            </p>
+                            <div class="qr-code-wrapper" style="max-width: 210px; margin: 20px auto;">
+                                <img class="qr-image" src="images/Payment_QR_Cropped-49rs.jpeg" alt="UPI QR Code Payment Template">
+                            </div>
                             
-                            <div class="upi-id-box">
+                            <div class="upi-id-box" style="margin-top: 15px;">
                                 <span>UPI ID:</span>
                                 <span class="upi-id">tonybaskar83@okaxis</span>
                                 <button id="copy-upi-btn" class="copy-upi-btn" title="Copy UPI ID" aria-label="Copy UPI ID">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            
-                            <button type="button" id="open-upi-chooser-btn" class="btn btn-primary upi-pay-btn" style="margin-top: 20px; width: 100%; display: inline-flex; justify-content: center; gap: 8px;">
-                                <i class="fas fa-wallet"></i> Pay <span class="dynamic-price-text">₹49</span> via UPI App (Mobile Only)
-                            </button>
                         </div>
 
                         <!-- Action steps instructions -->
@@ -370,34 +361,6 @@
             <p>&copy; 2026 TAITS TECH. All Rights Reserved. | <a href="index.html" class="footer-legal-link" style="text-decoration: underline;">Landing Page</a></p>
         </div>
     </footer>
-
-    <!-- UPI APP CHOOSER MODAL -->
-    <div id="upi-chooser-modal" class="upi-modal-overlay">
-        <div class="upi-modal-content glass-card">
-            <button id="close-upi-modal" class="close-modal-btn" aria-label="Close Modal">&times;</button>
-            <h4 class="upi-modal-title">Select Payment App</h4>
-            <p class="upi-modal-subtitle">Choose your preferred UPI application to complete payment of <strong class="dynamic-price-text">₹49</strong></p>
-            
-            <div class="upi-app-grid">
-                <button type="button" class="upi-app-option-btn" data-app="gpay">
-                    <i class="fab fa-google-pay upi-icon gpay-color"></i>
-                    <span>Google Pay</span>
-                </button>
-                <button type="button" class="upi-app-option-btn" data-app="phonepe">
-                    <i class="fas fa-mobile-alt upi-icon phonepe-color"></i>
-                    <span>PhonePe</span>
-                </button>
-                <button type="button" class="upi-app-option-btn" data-app="paytm">
-                    <i class="fas fa-wallet upi-icon paytm-color"></i>
-                    <span>Paytm</span>
-                </button>
-                <button type="button" class="upi-app-option-btn" data-app="other">
-                    <i class="fas fa-qrcode upi-icon other-color"></i>
-                    <span>Other UPI Apps</span>
-                </button>
-            </div>
-        </div>
-    </div>
 
     <!-- Script inputs -->
     <script src="js/main.js"></script>
