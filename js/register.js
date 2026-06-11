@@ -535,7 +535,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const payeeName = encodeURIComponent("Tony Baskar Y");
                 const txnNote = encodeURIComponent("CV Webinar Registration");
                 
-                let upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                // Generate a unique transaction reference ID to prevent duplicate requests and deep link parsing crashes
+                const txnRef = "TAITS" + Date.now() + Math.floor(Math.random() * 1000);
+                
+                let upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                 
                 // Detection helper for OS
                 const isAndroid = /Android/i.test(navigator.userAgent);
@@ -543,32 +546,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (app === 'gpay') {
                     if (isAndroid) {
-                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
                     } else if (isIOS) {
-                        upiUrl = `gpay://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                        // Use legacy tez://upi/pay scheme on iOS, as gpay://upi/pay is prone to silent failures/closes on modern iOS versions
+                        upiUrl = `tez://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                     } else {
                         // Fallback
-                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                     }
                 } else if (app === 'phonepe') {
                     if (isAndroid) {
-                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}#Intent;scheme=upi;package=com.phonepe.app;end`;
+                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}#Intent;scheme=upi;package=com.phonepe.app;end`;
                     } else if (isIOS) {
-                        upiUrl = `phonepe://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                        upiUrl = `phonepe://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                     } else {
-                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                     }
                 } else if (app === 'paytm') {
                     if (isAndroid) {
-                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}#Intent;scheme=upi;package=net.one97.paytm;end`;
+                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}#Intent;scheme=upi;package=net.one97.paytm;end`;
                     } else if (isIOS) {
-                        upiUrl = `paytmmp://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                        upiUrl = `paytmmp://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                     } else {
-                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                     }
                 } else {
                     // 'other' or generic fallback
-                    upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}&tr=${txnRef}`;
                 }
                 
                 // Hide modal and launch URL
