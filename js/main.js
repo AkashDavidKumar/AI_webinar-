@@ -465,16 +465,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========================================================================
-    // DYNAMIC PRICING ENGINE (Promo: ₹39 for 2 days, then ₹40)
+    // FIXED PRICING ENGINE (₹49 Fee)
     // ========================================================================
     (function() {
-        // Promo Start: June 2, 2026 11:49:00 AM (IST)
-        const promoStart = new Date("2026-06-02T11:49:00+05:30");
-        const promoDuration = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
-        const promoEnd = new Date(promoStart.getTime() + promoDuration);
-        
-        const now = new Date();
-        const price = (now < promoEnd) ? 39 : 40;
+        const price = 49;
         
         // 1. Update text elements with price values
         const priceElements = document.querySelectorAll('.dynamic-price-text');

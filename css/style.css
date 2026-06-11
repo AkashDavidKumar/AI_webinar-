@@ -1,7 +1,7 @@
 /* 
 ========================================================================
    AI Tools for Teachers Webinar Registration System - Main Stylesheet
-   Organization: Baskar Tech Academy
+    Organization: TAITS TECH
    Author: Senior Full Stack Developer & UI/UX Specialist
 ========================================================================
 */
@@ -221,7 +221,7 @@ button, input, select, textarea {
     padding: 14px 28px;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: var(--radius-full); /* Beautiful highly-rounded pill shapes matching BaskarTech Academy theme */
+    border-radius: var(--radius-full); /* Beautiful highly-rounded pill shapes matching TAITS TECH theme */
     cursor: pointer;
     transition: var(--transition);
     border: none;

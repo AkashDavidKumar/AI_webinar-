@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webinar Registration | AI Tools for Teachers</title>
+    <title>Webinar Registration | Computer Vision For Beginners</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Secure your seat for the AI Tools for Teachers Webinar. Easy multi-step registration and secure UPI payment setup.">
-    <meta name="keywords" content="webinar registration, teachers training registration, baskar tech academy">
-    <meta name="author" content="Baskar Tech Academy">
+    <meta name="description" content="Secure your seat for the TAITS TECH Computer Vision for Beginners Webinar. Easy multi-step registration and secure UPI payment setup.">
+    <meta name="keywords" content="webinar registration, computer vision webinar, taits tech">
+    <meta name="author" content="TAITS TECH">
 
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,9 +46,9 @@
     <!-- HEADER & NAVIGATION -->
     <header>
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                Baskar Tech<span>Academy</span>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="images/logo.jpeg" alt="TAITS TECH Logo" style="height: 40px; border-radius: 4px;">
+                TAITS <span>TECH</span>
             </a>
             
             <div class="nav-actions">
@@ -117,6 +117,10 @@
                                 <label for="whatsapp-number">WhatsApp Number <span>*</span></label>
                                 <input type="tel" id="whatsapp-number" name="whatsapp-number" class="input-control" placeholder="10-digit number" required pattern="[6-9][0-9]{9}">
                                 <span class="error-msg">Enter a valid WhatsApp number.</span>
+                                <label style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); cursor: pointer; user-select: none;">
+                                    <input type="checkbox" id="same-as-mobile" style="width: auto; margin: 0; transform: scale(1.1); cursor: pointer;">
+                                    <span>Same as Mobile Number</span>
+                                </label>
                             </div>
                         </div>
 
@@ -172,81 +176,17 @@
                             </div>
                         </div>
 
-                        <!-- Profession Selection -->
-                        <div class="form-group">
-                            <label>Profession <span>*</span></label>
-                            <div class="radio-group-grid">
-                                <label class="radio-card" for="prof-teaching">
-                                    <input type="radio" id="prof-teaching" name="profession" value="Teaching Staff" required>
-                                    <div class="radio-checkmark"></div>
-                                    <span>Teaching Staff</span>
-                                </label>
-                                <label class="radio-card" for="prof-student">
-                                    <input type="radio" id="prof-student" name="profession" value="Student">
-                                    <div class="radio-checkmark"></div>
-                                    <span>Student</span>
-                                </label>
-                                <label class="radio-card" for="prof-coord">
-                                    <input type="radio" id="prof-coord" name="profession" value="Academic Coordinator">
-                                    <div class="radio-checkmark"></div>
-                                    <span>Academic Coordinator</span>
-                                </label>
-                                <label class="radio-card" for="prof-other">
-                                    <input type="radio" id="prof-other" name="profession" value="Other">
-                                    <div class="radio-checkmark"></div>
-                                    <span>Other</span>
-                                </label>
-                            </div>
-                            <span class="error-msg" style="margin-top:10px;">Please select your profession.</span>
-                        </div>
 
-                        <!-- Conditional Logic: Teaching Staff Specific Questions -->
-                        <div id="teaching-conditional-fields" class="conditional-fields">
-                            <div class="form-group half-width">
-                                <div>
-                                    <label for="subject-handled">Subject Handled <span>*</span></label>
-                                    <select id="subject-handled" name="subject-handled" class="input-control">
-                                        <option value="" disabled selected>Select Subject</option>
-                                        <option value="Computer Science">Computer Science</option>
-                                        <option value="Mathematics">Mathematics</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="English">English</option>
-                                        <option value="Tamil">Tamil</option>
-                                        <option value="Commerce">Commerce</option>
-                                        <option value="Economics">Economics</option>
-                                        <option value="History">History</option>
-                                        <option value="Geography">Geography</option>
-                                        <option value="Physical Education">Physical Education</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <span class="error-msg">Subject handled is required.</span>
-                                </div>
-                                <div>
-                                    <label for="experience">Experience <span>*</span></label>
-                                    <select id="experience" name="experience" class="input-control">
-                                        <option value="" disabled selected>Select Experience</option>
-                                        <option value="Less than 1 Year">Less than 1 Year</option>
-                                        <option value="1-3 Years">1-3 Years</option>
-                                        <option value="3-5 Years">3-5 Years</option>
-                                        <option value="5-10 Years">5-10 Years</option>
-                                        <option value="10+ Years">10+ Years</option>
-                                    </select>
-                                    <span class="error-msg">Teaching experience is required.</span>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- Additional Question: AI Experience -->
                         <div class="form-group">
-                            <label for="ai-experience">Your AI Experience Level <span>*</span></label>
+                            <label for="ai-experience">How familiar are you with AI? <span>*</span></label>
                             <select id="ai-experience" name="ai-experience" class="input-control" required>
                                 <option value="" disabled selected>Select AI Level</option>
-                                <option value="Never Used">Never Used (Absolute Beginner)</option>
-                                <option value="Beginner">Beginner (Used ChatGPT occasionally)</option>
-                                <option value="Intermediate">Intermediate (Use AI prompts regularly for work)</option>
-                                <option value="Advanced">Advanced (Utilize multiple advanced AI systems)</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Never Used Before">Never Used Before</option>
                             </select>
                             <span class="error-msg">AI Experience level is required.</span>
                         </div>
@@ -288,16 +228,14 @@
 
                         <!-- Action steps instructions -->
                         <ol class="instructions-list">
-                            <li>Open any UPI App (GPay, PhonePe, Paytm, BHIM, etc.) on your mobile.</li>
                             <li>Scan the QR Code above or enter/copy the UPI ID: <strong>tonybaskar83@okaxis</strong>.</li>
                             <li>Complete the payment of <strong><span class="dynamic-price-text">₹49</span></strong> precisely.</li>
-                            <li>Take a screenshot of the payment receipt.</li>
-                            <li>Upload the screenshot below for verification <span style="font-weight:normal; color:var(--text-muted);">(Optional)</span>.</li>
+                            <li>Upload the payment screenshot below (optional).</li>
                         </ol>
 
                         <!-- Screenshot upload -->
                         <div class="form-group">
-                            <label>Upload Payment Screenshot <span style="color:var(--text-muted); font-weight:normal;">(Optional)</span></label>
+                            <label>Upload Payment Screenshot <span>(Optional)</span></label>
                             <div id="drag-drop-zone" class="drag-drop-zone">
                                 <div class="drag-drop-icon"><i class="fas fa-cloud-upload-alt"></i></div>
                                 <div class="drag-drop-text">Drag and drop file here or <span>Browse File</span></div>
@@ -322,76 +260,93 @@
                     <div class="form-step" id="step-3">
                         <h3 class="step-title"><i class="fas fa-clipboard-check" style="color:var(--primary); margin-right:8px;"></i> Step 3: Registration Confirmation</h3>
                         
-                        <!-- Verification checkbox -->
-                        <label class="confirm-checkbox-group" for="confirm-details">
-                            <input type="checkbox" id="confirm-details" name="confirm-details" required>
-                            <span>I confirm that all details provided are correct, and I have completed my payment of <span class="dynamic-price-text">₹49</span> for the webinar. <span>*</span></span>
-                        </label>
-                        <span class="error-msg" style="margin-bottom:15px; margin-top:-15px;">You must confirm all details are correct to submit.</span>
+                        <!-- Details confirmation radio -->
+                        <div class="form-group">
+                            <label>I confirm all details entered are correct. <span>*</span></label>
+                            <div class="radio-group-grid" style="grid-template-columns: repeat(2, 1fr);">
+                                <label class="radio-card" for="confirm-yes">
+                                    <input type="radio" id="confirm-yes" name="confirm-details" value="Yes" required>
+                                    <div class="radio-checkmark"></div>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-card" for="confirm-no">
+                                    <input type="radio" id="confirm-no" name="confirm-details" value="No">
+                                    <div class="radio-checkmark"></div>
+                                    <span>No</span>
+                                </label>
+                            </div>
+                            <span class="error-msg" style="margin-top:10px;">Please confirm your details are correct.</span>
+                        </div>
 
-                        <!-- WhatsApp Channel Invite Banner -->
+                        <!-- WhatsApp Group Invite Banner -->
                         <div class="whatsapp-channel-card" style="background: rgba(37, 211, 102, 0.08); border: 1px dashed #25d366; border-radius: var(--radius-sm); padding: 20px; text-align: center; margin-bottom: 24px; margin-top: 10px;">
                             <i class="fab fa-whatsapp" style="font-size: 2.2rem; color: #25d366; margin-bottom: 10px;"></i>
-                            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Join Baskar Tech WhatsApp Channel</h4>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Get instant webinar announcements, payment verification status updates, and free teacher AI resources directly on WhatsApp!</p>
-                            <a href="https://chat.whatsapp.com/HNlVQTlXMXOC6ClcWMHCaG" target="_blank" class="btn" style="background-color: #25d366; color: #ffffff; padding: 10px 20px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; border-radius: var(--radius-sm); font-weight: 600; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); transition: all 0.3s ease;">
-                                <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
+                            <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Join TAITS TECH WhatsApp Group</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Get instant webinar announcements, payment verification status updates, and computer vision handouts directly on WhatsApp!</p>
+                            <a href="https://chat.whatsapp.com/DXyI1YDfKPnHWKimbrGRrf" target="_blank" class="btn" style="background-color: #25d366; color: #ffffff; padding: 10px 20px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; border-radius: var(--radius-sm); font-weight: 600; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); transition: all 0.3s ease;">
+                                <i class="fab fa-whatsapp"></i> Join WhatsApp Group
                             </a>
                         </div>
 
                         <!-- Source Feedback -->
                         <div class="form-group" style="margin-top:20px;">
-                            <label>How did you hear about us? <span>*</span></label>
+                            <label>How did you hear about this webinar? <span>*</span></label>
                             <div class="referral-grid">
                                 <label class="referral-card" for="ref-whatsapp">
                                     <input type="radio" id="ref-whatsapp" name="referral-source" value="WhatsApp" required>
                                     <div class="referral-dot"></div>
-                                    <span>WhatsApp Message</span>
+                                    <span>WhatsApp</span>
                                 </label>
                                 <label class="referral-card" for="ref-instagram">
                                     <input type="radio" id="ref-instagram" name="referral-source" value="Instagram">
                                     <div class="referral-dot"></div>
-                                    <span>Instagram Ads</span>
+                                    <span>Instagram</span>
                                 </label>
                                 <label class="referral-card" for="ref-facebook">
                                     <input type="radio" id="ref-facebook" name="referral-source" value="Facebook">
                                     <div class="referral-dot"></div>
-                                    <span>Facebook Post</span>
+                                    <span>Facebook</span>
                                 </label>
                                 <label class="referral-card" for="ref-friend">
                                     <input type="radio" id="ref-friend" name="referral-source" value="Friend">
                                     <div class="referral-dot"></div>
-                                    <span>Friend / Colleague</span>
+                                    <span>Friend</span>
                                 </label>
                                 <label class="referral-card" for="ref-teacher">
                                     <input type="radio" id="ref-teacher" name="referral-source" value="Teacher">
                                     <div class="referral-dot"></div>
-                                    <span>School Principal / Teacher</span>
+                                    <span>Teacher</span>
                                 </label>
                                 <label class="referral-card" for="ref-college">
                                     <input type="radio" id="ref-college" name="referral-source" value="College Group">
                                     <div class="referral-dot"></div>
-                                    <span>College WhatsApp Group</span>
+                                    <span>College Group</span>
                                 </label>
                                 <label class="referral-card" for="ref-other">
                                     <input type="radio" id="ref-other" name="referral-source" value="Other">
                                     <div class="referral-dot"></div>
-                                    <span>Other Channels</span>
+                                    <span>Other</span>
                                 </label>
                             </div>
                             <span class="error-msg" style="margin-top:10px;">Please let us know how you heard about us.</span>
                         </div>
 
-                        <!-- Updates Switch Toggle -->
-                        <div class="updates-switch-container">
-                            <div class="switch-label-info">
-                                <h5>Receive Future Updates?</h5>
-                                <p>Get future AI tools guides and educational resources details.</p>
+                        <!-- Updates switch Yes/No -->
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label>Would you like updates about future TAITS TECH workshops? <span>*</span></label>
+                            <div class="radio-group-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 10px;">
+                                <label class="radio-card" for="updates-yes">
+                                    <input type="radio" id="updates-yes" name="receive-updates" value="Yes" checked required>
+                                    <div class="radio-checkmark"></div>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-card" for="updates-no">
+                                    <input type="radio" id="updates-no" name="receive-updates" value="No">
+                                    <div class="radio-checkmark"></div>
+                                    <span>No</span>
+                                </label>
                             </div>
-                            <label class="switch" for="receive-updates">
-                                <input type="checkbox" id="receive-updates" name="receive-updates" checked>
-                                <span class="slider"></span>
-                            </label>
+                            <span class="error-msg" style="margin-top:10px;">Please select an option.</span>
                         </div>
                     </div>
 
@@ -412,7 +367,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 Baskar Tech Academy. All Rights Reserved. | <a href="index.html" class="footer-legal-link" style="text-decoration: underline;">Landing Page</a></p>
+            <p>&copy; 2026 TAITS TECH. All Rights Reserved. | <a href="index.html" class="footer-legal-link" style="text-decoration: underline;">Landing Page</a></p>
         </div>
     </footer>
 

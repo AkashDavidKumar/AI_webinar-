@@ -1,7 +1,7 @@
 /**
  * ========================================================================
- * Google Apps Script Backend - AI Tools for Teachers Webinar Integration
- * Organization: Baskar Tech Academy
+ * Google Apps Script Backend - Computer Vision Webinar Integration
+ * Organization: TAITS TECH
  * Purpose: Expose an API to capture registration data & upload screens to Drive
  * ========================================================================
  */
@@ -29,8 +29,8 @@ function doPost(e) {
       const headers = [
         "Timestamp", "Name", "Email", "Mobile", "WhatsApp", 
         "Institution", "District", "State", "Profession", 
-        "Subject", "Experience", "AI Experience", "Transaction ID", 
-        "Screenshot URL", "Source", "Updates", "Status"
+        "Subject", "Teaching Experience", "AI Familiarity", "Transaction ID", 
+        "Screenshot URL", "Source", "Future Updates", "Status"
       ];
       sheet.appendRow(headers);
       // Format headers bold
