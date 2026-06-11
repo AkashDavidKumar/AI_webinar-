@@ -496,15 +496,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeUpiModalBtn = document.getElementById('close-upi-modal');
     const qrLinkWrapper = document.getElementById('mobile-qr-trigger');
     
-    // Function to calculate current price dynamically (based on central engine)
-    function getActivePrice() {
-        const promoStart = new Date("2026-06-02T11:49:00+05:30");
-        const promoDuration = 2 * 24 * 60 * 60 * 1000;
-        const promoEnd = new Date(promoStart.getTime() + promoDuration);
-        const now = new Date();
-        return (now < promoEnd) ? 39 : 40;
-    }
-
     if (upiChooserModal && openUpiChooserBtn && closeUpiModalBtn) {
         // Intercept button click
         openUpiChooserBtn.addEventListener('click', (e) => {
@@ -539,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
         upiOptionButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const app = btn.getAttribute('data-app');
-                const price = getActivePrice();
+                const price = 49;
                 const payeeVpa = "tonybaskar83@okaxis";
                 const payeeName = encodeURIComponent("Tony Baskar Y");
                 const txnNote = encodeURIComponent("CV Webinar Registration");
