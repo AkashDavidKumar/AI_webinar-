@@ -487,4 +487,103 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ========================================================================
+    // UPI APP CHOOSER MODAL CONTROL
+    // ========================================================================
+    const upiChooserModal = document.getElementById('upi-chooser-modal');
+    const openUpiChooserBtn = document.getElementById('open-upi-chooser-btn');
+    const closeUpiModalBtn = document.getElementById('close-upi-modal');
+    const qrLinkWrapper = document.getElementById('mobile-qr-trigger');
+    
+    // Function to calculate current price dynamically (based on central engine)
+    function getActivePrice() {
+        const promoStart = new Date("2026-06-02T11:49:00+05:30");
+        const promoDuration = 2 * 24 * 60 * 60 * 1000;
+        const promoEnd = new Date(promoStart.getTime() + promoDuration);
+        const now = new Date();
+        return (now < promoEnd) ? 39 : 40;
+    }
+
+    if (upiChooserModal && openUpiChooserBtn && closeUpiModalBtn) {
+        // Intercept button click
+        openUpiChooserBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            upiChooserModal.classList.add('show');
+        });
+        
+        // Intercept QR code click (on mobile)
+        if (qrLinkWrapper) {
+            qrLinkWrapper.addEventListener('click', (e) => {
+                // Only intercept on mobile screens
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    upiChooserModal.classList.add('show');
+                }
+            });
+        }
+        
+        // Close modal handlers
+        closeUpiModalBtn.addEventListener('click', () => {
+            upiChooserModal.classList.remove('show');
+        });
+        
+        upiChooserModal.addEventListener('click', (e) => {
+            if (e.target === upiChooserModal) {
+                upiChooserModal.classList.remove('show');
+            }
+        });
+        
+        // Handle selection of UPI App option
+        const upiOptionButtons = document.querySelectorAll('.upi-app-option-btn');
+        upiOptionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const app = btn.getAttribute('data-app');
+                const price = getActivePrice();
+                const payeeVpa = "tonybaskar83@okaxis";
+                const payeeName = encodeURIComponent("Tony Baskar Y");
+                const txnNote = encodeURIComponent("CV Webinar Registration");
+                
+                let upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                
+                // Detection helper for OS
+                const isAndroid = /Android/i.test(navigator.userAgent);
+                const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+                
+                if (app === 'gpay') {
+                    if (isAndroid) {
+                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+                    } else if (isIOS) {
+                        upiUrl = `gpay://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    } else {
+                        // Fallback
+                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    }
+                } else if (app === 'phonepe') {
+                    if (isAndroid) {
+                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}#Intent;scheme=upi;package=com.phonepe.app;end`;
+                    } else if (isIOS) {
+                        upiUrl = `phonepe://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    } else {
+                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    }
+                } else if (app === 'paytm') {
+                    if (isAndroid) {
+                        upiUrl = `intent://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}#Intent;scheme=upi;package=net.one97.paytm;end`;
+                    } else if (isIOS) {
+                        upiUrl = `paytmmp://upi/pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    } else {
+                        upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                    }
+                } else {
+                    // 'other' or generic fallback
+                    upiUrl = `upi://pay?pa=${payeeVpa}&pn=${payeeName}&am=${price}&cu=INR&tn=${txnNote}`;
+                }
+                
+                // Hide modal and launch URL
+                upiChooserModal.classList.remove('show');
+                window.location.href = upiUrl;
+            });
+        });
+    }
 });
